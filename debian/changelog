@@ -1,0 +1,190 @@
+python-pecan (1.3.3-4) unstable; urgency=medium
+
+  * Ran wrap-and-sort -bastk.
+  * Use pytest instead of setup.py test.
+  * Run tests within installed python module.
+  * Add fix-setup.cfg-for-pytest.patch.
+  * Add Support_SQLAlchemy_1.4.x.patch (Closes: #997350).
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 27 Oct 2021 10:33:42 +0200
+
+python-pecan (1.3.3-3) unstable; urgency=medium
+
+  * Fixed installing alternatives (Close: #947313).
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 25 Dec 2019 00:43:32 +0100
+
+python-pecan (1.3.3-2) unstable; urgency=medium
+
+  * Uploading to unstable:
+  * Removes Python 2 support (Closes: #938015). Note that the old Ceph package
+    still needs it, but version 14.2.4, currently in NEW, has Py2 support
+    removed.
+  * Add disable-failing-tests.patch.
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 20 Oct 2019 19:28:03 +0200
+
+python-pecan (1.3.3-1) experimental; urgency=medium
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Add python-gunicorn as build-depends.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 23 Sep 2019 17:24:13 +0200
+
+python-pecan (1.3.2-2) unstable; urgency=medium
+
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 03 Sep 2018 17:12:46 +0200
+
+python-pecan (1.3.2-1) experimental; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * Running wrap-and-sort -bast
+  * d/control: Use team+openstack@tracker.debian.org as maintainer
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Rebased remove-broken-test.patch.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 24 Aug 2018 09:28:21 +0200
+
+python-pecan (1.2.1-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Thomas Goirand ]
+  * Add Suggests; python-pecan-doc (Closes: #880636).
+  * Remove a Pre-Depends: dpkg version (not needed since xz support in Stable).
+
+  [ Ondřej Nový ]
+  * Enable autopkgtest-pkg-python
+
+ -- Ondřej Nový <onovy@debian.org>  Sun, 21 Jan 2018 14:51:57 +0100
+
+python-pecan (1.2.1-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed homepage (https).
+  * Fixed VCS URLs (https).
+  * d/rules: Changed UPSTREAM_GIT protocol to https
+  * d/copyright: Changed source URL to https protocol
+
+  [ Daniel Baumann ]
+  * Updating vcs fields.
+  * Updating copyright format url.
+  * Updating maintainer field.
+  * Running wrap-and-sort -bast.
+  * Updating standards version to 4.0.0.
+  * Removing gbp.conf, not used anymore or should be specified in the
+    developers dotfiles.
+  * Correcting permissions in debian packaging files.
+  * Updating standards version to 4.0.1.
+  * Updating standards version to 4.1.0.
+
+  [ Thomas Goirand ]
+  * New upstream release:
+    - Fix FTBFS in Python 3.6 (Closes: #867500).
+  * Switch to debhelper 10.
+  * Standards-Version is now 4.1.1.
+  * Using pkgos-dh_auto_install and removed openstack-pkg-tools defined.
+  * Fixed debian/copyright ordering.
+  * Remove a broken test, make all version of Python to fail build if tests
+    fail.
+  * Remove entries in debian/copyright that were removed upstream.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 28 Oct 2017 21:32:45 +0200
+
+python-pecan (1.1.2-3) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/s/options: extend-diff-ignore of .gitreview
+  * d/control: Use correct branch in Vcs-* fields
+
+  [ Thomas Goirand ]
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 04 Oct 2016 14:16:34 +0200
+
+python-pecan (1.0.3-1) experimental; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 04 Dec 2015 12:07:35 +0100
+
+python-pecan (1.0.2-2) unstable; urgency=medium
+
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 16 Oct 2015 10:25:16 +0000
+
+python-pecan (1.0.2-1) experimental; urgency=medium
+
+  [ James Page ]
+  * Update watch file to use correct location in github.
+
+  [ Thomas Goirand ]
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 07 Sep 2015 23:49:03 +0200
+
+python-pecan (0.8.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Removed compat/tests expat-vinay in debian/copyright.
+  * Standards-Version: 3.9.6 (no change).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 23 Dec 2014 15:35:57 +0800
+
+python-pecan (0.6.1-2) unstable; urgency=medium
+
+  * Added missing build-depends: python3-sqlalchemy and python3-mock.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 28 Jul 2014 22:42:25 +0800
+
+python-pecan (0.6.1-1) unstable; urgency=medium
+
+  [ Thomas Bechtold ]
+  * debian/gbp.conf: Disable explicit pristine-tar.
+  * debian/rules: Enable sphinxdoc build.
+  * debian/control: Add new binary package for documentation.
+
+  [ Thomas Goirand ]
+  * New upstream release.
+  * Refresh patches.
+  * Removes intersphinx sphinx plugin.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 28 Jul 2014 22:22:29 +0800
+
+python-pecan (0.4.5-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Ran wrap-and-sort.
+  * Updates debian/copyright and debian/rules for the new
+    github.com/stackforge/pecan.git URL.
+  * Added python 3.x support.
+  * Removed openstack-pkg-tools as hard dependency.
+  * Now running the unit tests at build time.
+  * Standard-Version is now 3.9.5.
+  * Added a bunch of new (build-)dependencies.
+  * Patches setup.py to not download the virtualenv tarball.
+
+ -- Thomas Goirand <zigo@debian.org>  Sat, 07 Dec 2013 17:23:19 +0800
+
+python-pecan (0.3.0-1) unstable; urgency=low
+
+  * Uploading to unstable.
+  * New upstream release.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 13 May 2013 07:49:09 +0000
+
+python-pecan (0.2.2-1) experimental; urgency=low
+
+  * Initial release (Closes: #704760).
+
+ -- Thomas Goirand <zigo@debian.org>  Thu, 13 Dec 2012 06:31:35 +0000

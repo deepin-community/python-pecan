@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+UPSTREAM_GIT := https://github.com/pecan/pecan.git
+include /usr/share/openstack-pkg-tools/pkgos.make
+
+export http_proxy=127.0.0.1:9
+export https_proxy=127.0.0.1:9
+
+%:
+	dh $@ --with python3,sphinxdoc
+
+override_dh_auto_clean:
+	rm -rf build
+
+override_dh_auto_build:
+	echo "Do nothing..."
+
+override_dh_auto_install:
+	pkgos-dh_auto_install --no-py2 --in-tmp
+
+ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+	set -e && for pyvers in $(PYTHON3S) ; do \
+		PYTHONPATH=$(CURDIR)/tmp/usr/lib/python3/dist-packages python$$pyvers -m pytest pecan/tests -v ; \
+	done
+endif
+
+override_dh_python3:
+	dh_python3 --shebang=/usr/bin/python3
+
+override_dh_auto_test:
+	echo "Do not run tests here..."
+
+override_dh_sphinxdoc:
+ifeq (,$(findstring nodocs, $(DEB_BUILD_OPTIONS)))
+	PYTHONPATH=$(CURDIR) python3 -m sphinx docs/source $(CURDIR)/debian/python-pecan-doc/usr/share/doc/python-pecan-doc/html
+	dh_sphinxdoc
+endif
