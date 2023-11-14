@@ -3,13 +3,19 @@ import platform
 
 from setuptools import setup, find_packages
 
-version = '1.3.3'
+version = '1.4.2'
 
 #
 # determine requirements
 #
 with open('requirements.txt') as reqs:
     requirements = [
+        line for line in reqs.read().split('\n')
+        if (line and not line.startswith('-'))
+    ]
+
+with open('test-requirements.txt') as reqs:
+    test_requirements = [
         line for line in reqs.read().split('\n')
         if (line and not line.startswith('-'))
     ]
@@ -28,13 +34,7 @@ except:
         requirements.append('ordereddict')
 
 
-tests_require = requirements + [
-    'virtualenv',
-    'Jinja2',
-    'gunicorn',
-    'mock',
-    'sqlalchemy'
-]
+tests_require = requirements + test_requirements
 
 if sys.version_info < (3, 0):
     # These don't support Python3 yet - don't run their tests
@@ -66,13 +66,12 @@ setup(
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: Implementation :: PyPy',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Internet :: WWW/HTTP :: WSGI',
         'Topic :: Software Development :: Libraries :: Application Frameworks'
     ],
