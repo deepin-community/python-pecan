@@ -1,3 +1,25 @@
+1.4.2
+=====
+
+* pecan no longer depends on webtest (https://github.com/pecan/pecan/issues/139)
+
+1.4.1
+=====
+
+* add support for Python 3.10
+* added trove classifiers for Python 3.6 - 3.9
+* fixed a bug related to setuptools as a dependency
+  (https://github.com/pecan/pecan/pull/122)
+* fixed a bug that broke pecan when used with certain versions of
+  SQLAlchemy (https://github.com/pecan/pecan/pulls)
+
+1.4.0
+=====
+* pecan now requires webob >= 1.8
+* fixed a bug when parsing certain Accept headers
+  (https://github.com/Pylons/webob/issues/403)
+* removed official support for Python 3.5
+
 1.3.3
 =====
 * fixed a bug in RestController that incorrectly routed certain @secure

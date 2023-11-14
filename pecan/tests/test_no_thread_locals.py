@@ -1,12 +1,12 @@
 import time
 from json import dumps, loads
 import warnings
+from unittest import mock
 
 from webtest import TestApp
 from six import b as b_
 from six import u as u_
 import webob
-import mock
 
 from pecan import Pecan, expose, abort, Request, Response
 from pecan.rest import RestController
@@ -361,9 +361,13 @@ class TestControllerArguments(PecanTestCase):
         except Exception as ex:
             assert type(ex) == TypeError
             assert ex.args[0] in (
-                "index() takes exactly 4 arguments (3 given)",
-                "index() missing 1 required positional argument: 'id'"
-            )  # this messaging changed in Python 3.3
+                "index() takes exactly 2 arguments (1 given)",
+                "index() missing 1 required positional argument: 'id'",
+                (
+                    "TestControllerArguments.app_.<locals>.RootController."
+                    "index() missing 1 required positional argument: 'id'"
+                ),
+            )  # this messaging changed in Python 3.3 and again in Python 3.10
 
     def test_single_argument(self):
         r = self.app_.get('/1')
@@ -763,9 +767,13 @@ class TestControllerArguments(PecanTestCase):
         except Exception as ex:
             assert type(ex) == TypeError
             assert ex.args[0] in (
-                "eater() takes at least 4 arguments (3 given)",
-                "eater() missing 1 required positional argument: 'id'"
-            )  # this messaging changed in Python 3.3
+                "eater() takes exactly 2 arguments (1 given)",
+                "eater() missing 1 required positional argument: 'id'",
+                (
+                    "TestControllerArguments.app_.<locals>.RootController."
+                    "eater() missing 1 required positional argument: 'id'"
+                ),
+            )  # this messaging changed in Python 3.3 and again in Python 3.10
 
     def test_one_remainder(self):
         r = self.app_.get('/eater/1')
