@@ -21,6 +21,16 @@ class TestConf(PecanTestCase):
         bad_dict = {'bad name': 'value'}
         self.assertRaises(ValueError, configuration.Config, bad_dict)
 
+    def test_update_config_fail_message(self):
+        """When failing, the __force_dict__ key is suggested"""
+        from pecan import configuration
+        bad_dict = {'bad name': 'value'}
+
+        try:
+            configuration.Config(bad_dict)
+        except ValueError as error:
+            assert "consider using the '__force_dict__'" in str(error)
+
     def test_update_set_config(self):
         """Update an empty configuration with the default values"""
         from pecan import configuration
@@ -328,7 +338,7 @@ class TestConfFromEnv(PecanTestCase):
     def test_invalid_path(self):
         os.environ['PECAN_CONFIG'] = '/'
         msg = "PECAN_CONFIG was set to an invalid path: /"
-        self.assertRaisesRegexp(
+        self.assertRaisesRegex(
             RuntimeError,
             msg,
             self.get_conf_path_from_env
@@ -337,7 +347,7 @@ class TestConfFromEnv(PecanTestCase):
     def test_is_not_set(self):
         msg = "PECAN_CONFIG is not set and " \
               "no config file was passed as an argument."
-        self.assertRaisesRegexp(
+        self.assertRaisesRegex(
             RuntimeError,
             msg,
             self.get_conf_path_from_env

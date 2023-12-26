@@ -1,5 +1,3 @@
 no-intersphinx.patch
 remove-broken-test.patch
 disable-failing-tests.patch
-fix-setup.cfg-for-pytest.patch
-Support_SQLAlchemy_1.4.x.patch
