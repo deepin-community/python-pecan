@@ -1,0 +1,13 @@
+Description: Remove setuptools from requirements.txt
+Author: Thomas Goirand <zigo@debian.org>
+Bug-Debian: https://bugs.debian.org/1083678
+Forwarded: no
+Last-Update: 2024-10-14
+
+--- python-pecan-1.5.1.orig/requirements.txt
++++ python-pecan-1.5.1/requirements.txt
+@@ -1,4 +1,3 @@
+ WebOb>=1.8
+ Mako>=0.4.0
+-setuptools
+ logutils>=0.3

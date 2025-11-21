@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+PYTHON3S=$(py3versions -vr 2>/dev/null)
+for i in ${PYTHON3S} ; do
+	PYTHONPATH=. python$i -m pytest -v -k 'not test_config_with_non_package_relative_import and not test_genshi and not test_mako'
+done

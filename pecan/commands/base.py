@@ -4,8 +4,6 @@ import logging
 import sys
 from warnings import warn
 
-import six
-
 log = logging.getLogger(__name__)
 
 
@@ -81,13 +79,16 @@ class CommandRunner(object):
             )
             for arg in getattr(cmd, 'arguments', tuple()):
                 arg = arg.copy()
-                if isinstance(arg.get('name'), six.string_types):
+                if isinstance(arg.get('name'), str):
                     sub.add_argument(arg.pop('name'), **arg)
                 elif isinstance(arg.get('name'), list):
                     sub.add_argument(*arg.pop('name'), **arg)
 
     def run(self, args):
         ns = self.parser.parse_args(args)
+        if ns.command_name is None:
+            self.run(['--help'])
+            return
         self.commands[ns.command_name]().run(ns)
 
     @classmethod

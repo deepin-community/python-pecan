@@ -1,3 +1,3 @@
 no-intersphinx.patch
-remove-broken-test.patch
-disable-failing-tests.patch
+use-raw-strings-to-avoid-py3.12-warning.patch
+remove-setuptools-requirements.txt.patch

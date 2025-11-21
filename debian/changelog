@@ -1,3 +1,47 @@
+python-pecan (1.5.1-6) unstable; urgency=medium
+
+  * Removed python3-pkg-resources from depends (Closes: #1083678).
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 14 Oct 2024 12:10:29 +0200
+
+python-pecan (1.5.1-5) unstable; urgency=medium
+
+  * Removed python3-singledispatch from (build-)depends (Closes: #1081802).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 24 Sep 2024 13:36:15 +0200
+
+python-pecan (1.5.1-4) unstable; urgency=medium
+
+  * Add use-raw-strings-to-avoid-py3.12-warning.patch.
+
+ -- Thomas Goirand <zigo@debian.org>  Mon, 15 Jul 2024 02:46:28 +0200
+
+python-pecan (1.5.1-3) unstable; urgency=medium
+
+  * Removed python3-mock build-depends (Closes: #1072294).
+
+ -- Thomas Goirand <zigo@debian.org>  Sun, 02 Jun 2024 11:37:14 +0200
+
+python-pecan (1.5.1-2) unstable; urgency=medium
+
+  * Uploading to unstable.
+
+ -- Thomas Goirand <zigo@debian.org>  Wed, 03 Apr 2024 16:22:12 +0200
+
+python-pecan (1.5.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Removed patches, and simply blacklist tests in d/rules instead.
+  * Add autopktest.
+
+ -- Thomas Goirand <zigo@debian.org>  Fri, 23 Feb 2024 10:02:28 +0100
+
+python-pecan (1.4.2-3) unstable; urgency=medium
+
+  * Removed extraneous stale python3-unittest2 build-dep (Closes: #1060641).
+
+ -- Thomas Goirand <zigo@debian.org>  Tue, 23 Jan 2024 17:01:08 +0100
+
 python-pecan (1.4.2-2) unstable; urgency=medium
 
   * Uploading to unstable.
