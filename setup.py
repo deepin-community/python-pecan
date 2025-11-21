@@ -3,7 +3,7 @@ import platform
 
 from setuptools import setup, find_packages
 
-version = '1.4.2'
+version = '1.5.1'
 
 #
 # determine requirements
@@ -72,6 +72,7 @@ setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Topic :: Internet :: WWW/HTTP :: WSGI',
         'Topic :: Software Development :: Libraries :: Application Frameworks'
     ],
@@ -82,7 +83,6 @@ setup(
     license='BSD',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
-    scripts=['bin/pecan'],
     zip_safe=False,
     install_requires=requirements,
     tests_require=tests_require,

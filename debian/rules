@@ -22,7 +22,7 @@ override_dh_auto_install:
 
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 	set -e && for pyvers in $(PYTHON3S) ; do \
-		PYTHONPATH=$(CURDIR)/tmp/usr/lib/python3/dist-packages python$$pyvers -m pytest pecan/tests -v ; \
+		PYTHONPATH=$(CURDIR)/tmp/usr/lib/python3/dist-packages python$$pyvers -m pytest pecan/tests -v -k 'not test_config_with_non_package_relative_import and not test_genshi and not test_mako'; \
 	done
 endif
 

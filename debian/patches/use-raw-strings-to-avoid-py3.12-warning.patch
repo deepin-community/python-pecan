@@ -1,0 +1,27 @@
+Description: Use raw strings to avoid Python 3.12 warning
+Author: Thomas Goirand <zigo@debian.org>
+Forwarded: no
+Last-Update: 2024-07-15
+
+--- python-pecan-1.5.1.orig/pecan/core.py
++++ python-pecan-1.5.1/pecan/core.py
+@@ -317,7 +317,7 @@ class PecanBase(object):
+         return self.hooks
+ 
+     def handle_hooks(self, hooks, hook_type, *args):
+-        '''
++        r'''
+         Processes hooks of the specified type.
+ 
+         :param hook_type: The type of hook, including ``before``, ``after``,
+--- python-pecan-1.5.1.orig/pecan/routing.py
++++ python-pecan-1.5.1/pecan/routing.py
+@@ -45,7 +45,7 @@ def route(*args):
+             raise TypeError('%s must be a string' % route)
+ 
+         if route in ('.', '..') or not re.match(
+-            '^[0-9a-zA-Z-_$\(\)\.~!,;:*+@=]+$', route
++            r'^[0-9a-zA-Z-_$\(\)\.~!,;:*+@=]+$', route
+         ):
+             raise ValueError(
+                 '%s must be a valid path segment.  Keep in mind '
